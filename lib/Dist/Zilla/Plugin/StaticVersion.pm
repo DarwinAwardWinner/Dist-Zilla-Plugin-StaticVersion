@@ -12,19 +12,20 @@ use MooseX::Types::Moose qw( Str );
 with qw/ Dist::Zilla::Role::VersionProvider /;
 
 has version => (
-    ro, lazy,
+    ro, lazy, required,
     isa => Str,
-    default => sub { undef },
+    default => sub { '' },
 );
 
 =method provide_version
 
-This method simply offers the specified version.
+This method simply offers the specified version. If the specified
+version is false (e.g. empty string), it will not be offered.
 
 =cut
 
 sub provide_version {
-    return $_[0]->version;
+    return $_[0]->version if $_[0]->version;
 }
 
 1; # Magic true value required at end of module
