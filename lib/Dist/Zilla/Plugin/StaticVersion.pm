@@ -12,8 +12,9 @@ use MooseX::Types::Moose qw( Str );
 with qw/ Dist::Zilla::Role::VersionProvider /;
 
 has version => (
-    ro, required,
+    ro, lazy,
     isa => Str,
+    default => sub { undef },
 );
 
 =method provide_version
@@ -51,6 +52,8 @@ In dist.ini:
 This purpose of this plugin is to allow plugin bundles or other such
 things to specify a version number manually. You shouldn't need to use
 it in your dist.ini.
+
+You can make this module into a No-op by setting version to undef.
 
 =head1 BUGS AND LIMITATIONS
 

@@ -29,6 +29,8 @@ This purpose of this plugin is to allow plugin bundles or other such
 things to specify a version number manually. You shouldn't need to use
 it in your dist.ini.
 
+You can make this module into a No-op by setting version to undef.
+
 # METHODS
 
 ## provide_version
