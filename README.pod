@@ -6,7 +6,7 @@ Dist::Zilla::Plugin::StaticVersion - Specify version number manually.
 
 =head1 VERSION
 
-version 0.103440
+version 0.103450
 
 =head1 SYNOPSIS
 
