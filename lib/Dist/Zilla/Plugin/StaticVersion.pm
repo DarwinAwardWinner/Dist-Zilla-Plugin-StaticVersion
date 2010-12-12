@@ -65,8 +65,6 @@ F<dist.ini>.
 
 You shouldn't need to use this plugin directly in your F<dist.ini>.
 
-You can make this module into a No-op by setting version to undef.
-
 =head1 BUGS AND LIMITATIONS
 
 This module is under ten lines of code. It is likely provably correct.
