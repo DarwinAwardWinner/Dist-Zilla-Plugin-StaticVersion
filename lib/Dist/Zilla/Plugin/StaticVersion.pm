@@ -3,7 +3,7 @@ use warnings;
 use utf8;
 
 package Dist::Zilla::Plugin::StaticVersion;
-# ABSTRACT: Specify version number manually.
+# ABSTRACT: Specify version number manually, using a plugin
 
 use Moose;
 use MooseX::Has::Sugar;
@@ -34,6 +34,9 @@ __END__
 
 In a plugin bundle:
 
+    package Dist::Zilla::PluginBundle::SomePlugins;
+    use Moose;
+    with 'Dist::Zilla::Role::PluginBundle::Easy';
     sub configure {
         ...
         $self->add_plugins(
@@ -47,11 +50,20 @@ In dist.ini:
     [StaticVersion]
     version = 1.14.3
 
+which is equivalent to:
+
+    version = 1.14.3
+
 =head1 DESCRIPTION
 
 This purpose of this plugin is to allow plugin bundles or other such
-things to specify a version number manually. You shouldn't need to use
-it in your dist.ini.
+things to specify a specific version number. This allows one to write
+a pluginbundle that decides based on its configuration whether to
+offer a specific version number. You could not otherwise do this,
+because a static version number is specified before any plugins in
+F<dist.ini>.
+
+You shouldn't need to use this plugin directly in your F<dist.ini>.
 
 You can make this module into a No-op by setting version to undef.
 
